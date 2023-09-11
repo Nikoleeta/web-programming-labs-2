@@ -33,6 +33,7 @@ def lab1():
             <li><a href="http://127.0.0.1:5000/lab1/oak">/lab1/oak - дуб</a></li>
             <li><a href="http://127.0.0.1:5000/lab1/student">/lab1/student - студент</a></li>
             <li><a href="http://127.0.0.1:5000/lab1/python">/lab1/python - python</a></li>
+            <li><a href="http://127.0.0.1:5000/lab1/bi">/lab1/bi - бизнес-информатика</a></li>
         </ul>
 
         <footer>
@@ -86,10 +87,78 @@ def student():
 <!doctype html>
 <html>
     <body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="'''+ url_for('static', filename='lab1.css')+'''">
+    </head>
+        <img class='img2' src="''' + url_for('static', filename='logo.png') + '''">
         <h1>Косарева Николета Вячеславовна</h1>
-        <img src="''' + url_for('static', filename='logo.png') + '''"
-        style="width:20px, height:10px">
+    </body>
+</html> 
+'''
+
+@app.route('/lab1/python')
+def python():
+    return'''
+<!doctype html>
+<html>
+    <body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="'''+ url_for('static', filename='lab1.css')+'''">
+    </head>
+        <h1 class="text">Applications for Python</h1>
+        <p>Python is used in many application domains. Here's a sampling.</p>
+        <li>The Python Package Index lists 
+        thousands of third party modules for Python.</li>
         
+        <h2 class="text">Web and Internet Development</h2>
+        <p>Python offers many choices for web development:</p>
+        <li>Frameworks such as Django and Pyramid.</li>
+        <li>Micro-frameworks such as Flask and Bottle.</li>
+        <li>Advanced content management systems such as Plone and django CMS.</li>
+    
+        <p>Python's standard library supports many Internet protocols:</p>
+        <li>HTML and XML</li>
+        <li>JSON</li>
+        <li>E-mail processing.</li>
+        <li>Support for FTP, IMAP, and other Internet protocols.</li>
+        <li>Easy-to-use socket interface.</li>
+
+        <img class='img3' src="''' + url_for('static', filename='python.jpg') + '''">
+    </body>
+</html> 
+'''
+
+@app.route('/lab1/bi')
+def bi():
+    return'''
+<!doctype html>
+<html>
+    <body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="'''+ url_for('static', filename='lab1.css')+'''">
+    </head>
+    <div class='teext2'><img class='img4' src="''' + url_for('static', filename='8.png') + '''">
+    Бизнес-информатика</div>
+    
+    <h1 class='teext'>ЧЕМ УНИКАЛЬНА БИЗНЕС-ИНФОРМАТИКА?</h1>
+
+    <p><h2 class='teext2'>Формирование компетенций</h2></p>
+    <p>Возможность выйти на экспертный уровень в 
+    использовании методов и инструментов Data Science,
+    позволяющих решать задачи на стыке предметных областей и 
+    передовых компьютерных технологий</p>
+
+    <p><h2 class='teext2'>Проектный опыт</h2></p>
+    <p>Большой объём внеаудиторной деятельности,, предусматривающей 
+    включение студента в практическую работу как в университете, так и за его пределами.
+    Это является хорошим шансом установить контакт с будущим работодателем :)</p>
+
+    <p><h2 class='teext2'>Яркая студенческая жизнь</h2></p>
+    <p><p>Большой объём внеаудиторной деятельности,, предусматривающей 
+    включение студента в практическую работу как в университете, 
+    так и за его пределами. Это является хорошим шансом установить 
+    контакт с будущим работодателем :)</p></p>
+
     </body>
 </html> 
 '''

@@ -168,5 +168,10 @@ def bi():
 @app.route('/lab2/example')
 def example():
     name='Николета Косарева'
-    return render_template('example.html', name=name)
+    num='2'
+    course='3'
+    group='FBI-12'
+    return render_template('example.html', name=name, num=num, 
+    course=course, group=group)
+   
 

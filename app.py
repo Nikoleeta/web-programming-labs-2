@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 app=Flask(__name__)
 
 @app.route("/")
@@ -15,6 +15,7 @@ def lab1():
         <title> Косарева Николета Вячеславовна, лабораторная 1</title>
     </head>
     <body>
+        <link rel="stylesheet" type="text/css" href="'''+ url_for('static', filename='lab1.css')+'''">
         <header>
             НГТУ, ФБ, Лабораторная работа №1
         </header>
@@ -162,3 +163,8 @@ def bi():
     </body>
 </html> 
 '''
+
+
+@app.route('/lab2/example')
+def example():
+    return render_template('example.html')

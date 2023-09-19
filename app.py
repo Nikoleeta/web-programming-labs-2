@@ -164,14 +164,49 @@ def bi():
 </html> 
 '''
 
+@app.route('/lab2/')
+def lab2():
+    return render_template('lab2.html')
 
 @app.route('/lab2/example')
 def example():
-    name='Николета Косарева'
-    num='2'
-    course='3'
-    group='FBI-12'
-    return render_template('example.html', name=name, num=num, 
-    course=course, group=group)
+    name, num, course, group='Nikoleta Kosareva', 2, '3 course', 'FBI-12'
+    fruits=[
+        {'name':'apples','price':100},
+        {'name':'pears', 'price':120},
+        {'name':'oranges', 'price':80},
+        {'name':'mango', 'price':321},
+        {'name':'tangerines', 'price':95}
+    ]
+
+    books=[
+        {'author': 'E.Maria Remarque', 'bookname':'"Three Comrades"', 
+        'genre': 'war novel', 'quantity': 480},
+        {'author': 'Kristina Stark', 'bookname':'"Wings"', 
+        'genre': 'novel','quantity': 480},
+        {'author': 'D. Gherbert Lawrence', 'bookname':'"Lady Chatterleys lover"', 
+        'genre': 'novel', 'quantity': 448},
+        {'author': 'F. Hodgson Burnett', 'bookname':'"Secret Garden"', 
+        'genre': 'novel','quantity': 150},
+        {'author': 'Lev Tolstoy',  'bookname':'"Anna Karenina"', 
+        'genre': 'novel','quantity': 850},
+        {'author': 'Anne Bronte', 'bookname':'"The Tenant of Wildfell Hall"', 
+        'genre': 'novel','quantity': 640},
+        {'author': 'L. May Alcott', 'bookname':'"Little Women"', 
+        'genre': 'novel','quantity': 384},
+        {'author': 'Fedor Dostoevskiy',  'bookname':'"Crime and punishment"', 
+        'genre': 'socio-pccychological novel','quantity': 592},
+        {'author': 'Fedor Dostoevskiy',  'bookname':'"White nights"', 
+        'genre': 'novel','quantity': 70},
+        {'author': 'Arthur Hailey',  'bookname':'"Hotel"', 
+        'genre': 'novel','quantity': 500}]
+
+    return render_template('example.html', 
+            num=num, name=name, course=course, 
+            group=group, fruits=fruits, books=books)
    
+@app.route('/lab2/studying')
+def lab2st():
+    return render_template('studying.html')
+
 

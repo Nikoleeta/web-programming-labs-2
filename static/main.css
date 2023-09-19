@@ -24,3 +24,9 @@ footer{
     left:0;
     right:0;
 }
+
+.img{
+    width:400px;
+    height:250px;
+    margin-top: 10px;
+}

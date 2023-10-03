@@ -1,172 +1,14 @@
 from flask import Flask, redirect, url_for, render_template
+from lab1 import lab1
+
 app=Flask(__name__)
+app.register_blueprint(lab1)
 
-@app.route("/")
-@app.route("/index")
-def start():
-    return redirect ("/menu", code=302)
-
-@app.route("/lab1")
-def lab1():
-    return"""
-<!doctype html>
-<html>
-    <head>
-        <title> Косарева Николета Вячеславовна, лабораторная 1</title>
-    </head>
-    <body>
-        <link rel="stylesheet" type="text/css" href="'''+ url_for('static', filename='lab1.css')+'''">
-        <header>
-            НГТУ, ФБ, Лабораторная работа №1
-        </header>
-
-        <p>Flask — фреймворк для создания веб-приложений на языке
-        программирования Python, использующий набор инструментов
-        Werkzeug, а также шаблонизатор Jinja2. Относится к категории так
-        называемых микрофреймворков — минималистичных каркасов
-        веб-приложений, сознательно предоставляющих лишь 
-        самые базовые возможности</p>
-
-        <a href="http://127.0.0.1:5000/menu">Меню</a>
-
-        <h2>Реализованные роуты</h2>
-        <ul>
-            <li><a href="http://127.0.0.1:5000/lab1/oak">/lab1/oak - дуб</a></li>
-            <li><a href="http://127.0.0.1:5000/lab1/student">/lab1/student - студент</a></li>
-            <li><a href="http://127.0.0.1:5000/lab1/python">/lab1/python - python</a></li>
-            <li><a href="http://127.0.0.1:5000/lab1/bi">/lab1/bi - бизнес-информатика</a></li>
-        </ul>
-
-        <footer>
-            &copy; Косарева Николета, ФБИ-12, 3 курс, 2023
-        </footer>
-    </body>
-</html> 
-"""
-
-@app.route("/menu")
-def meenu():
-    return"""
-<!doctype html>
-<html>
-    <head>
-        <title> Косарева Николета Вячеславовна, лабораторная 1</title>
-    </head>
-    <body>
-        <header>
-            НГТУ, ФБ, Лабораторная работа №1
-        </header>
-
-        <a href="http://127.0.0.1:5000/lab1">1. Первая лабораторная</a>
-        
-
-        <footer>
-            &copy; Косарева Николета, ФБИ-12, 3 курс, 2023
-        </footer>
-    </body>
-</html> 
-"""
-
-@app.route('/lab1/oak')
-def oak():
-    return'''
-<!doctype html>
-<html>
-    <body>
-    <head>
-        <link rel="stylesheet" type="text/css" href="'''+ url_for('static', filename='lab1.css')+'''">
-    </head>
-        <h1 class='dub'>Дуб</h1>
-        <img src="''' + url_for('static', filename='oak.jpg') + '''">
-    </body>
-</html> 
-'''
-
-@app.route('/lab1/student')
-def student():
-    return'''
-<!doctype html>
-<html>
-    <body>
-    <head>
-        <link rel="stylesheet" type="text/css" href="'''+ url_for('static', filename='lab1.css')+'''">
-    </head>
-        <img class='img2' src="''' + url_for('static', filename='logo.png') + '''">
-        <h1>Косарева Николета Вячеславовна</h1>
-    </body>
-</html> 
-'''
-
-@app.route('/lab1/python')
-def python():
-    return'''
-<!doctype html>
-<html>
-    <body>
-    <head>
-        <link rel="stylesheet" type="text/css" href="'''+ url_for('static', filename='lab1.css')+'''">
-    </head>
-        <h1 class="text">Applications for Python</h1>
-        <p>Python is used in many application domains. Here's a sampling.</p>
-        <li>The Python Package Index lists 
-        thousands of third party modules for Python.</li>
-        
-        <h2 class="text">Web and Internet Development</h2>
-        <p>Python offers many choices for web development:</p>
-        <li>Frameworks such as Django and Pyramid.</li>
-        <li>Micro-frameworks such as Flask and Bottle.</li>
-        <li>Advanced content management systems such as Plone and django CMS.</li>
-    
-        <p>Python's standard library supports many Internet protocols:</p>
-        <li>HTML and XML</li>
-        <li>JSON</li>
-        <li>E-mail processing.</li>
-        <li>Support for FTP, IMAP, and other Internet protocols.</li>
-        <li>Easy-to-use socket interface.</li>
-
-        <img class='img3' src="''' + url_for('static', filename='python.jpg') + '''">
-    </body>
-</html> 
-'''
-
-@app.route('/lab1/bi')
-def bi():
-    return'''
-<!doctype html>
-<html>
-    <body>
-    <head>
-        <link rel="stylesheet" type="text/css" href="'''+ url_for('static', filename='lab1.css')+'''">
-    </head>
-    <div class='teext2'><img class='img4' src="''' + url_for('static', filename='8.png') + '''">
-    Бизнес-информатика</div>
-    
-    <h1 class='teext'>ЧЕМ УНИКАЛЬНА БИЗНЕС-ИНФОРМАТИКА?</h1>
-
-    <p><h2 class='teext2'>Формирование компетенций</h2></p>
-    <p>Возможность выйти на экспертный уровень в 
-    использовании методов и инструментов Data Science,
-    позволяющих решать задачи на стыке предметных областей и 
-    передовых компьютерных технологий</p>
-
-    <p><h2 class='teext2'>Проектный опыт</h2></p>
-    <p>Большой объём внеаудиторной деятельности,, предусматривающей 
-    включение студента в практическую работу как в университете, так и за его пределами.
-    Это является хорошим шансом установить контакт с будущим работодателем :)</p>
-
-    <p><h2 class='teext2'>Яркая студенческая жизнь</h2></p>
-    <p><p>Большой объём внеаудиторной деятельности,, предусматривающей 
-    включение студента в практическую работу как в университете, 
-    так и за его пределами. Это является хорошим шансом установить 
-    контакт с будущим работодателем :)</p></p>
-
-    </body>
-</html> 
-'''
 
 @app.route('/lab2/')
 def lab2():
     return render_template('lab2.html')
+
 
 @app.route('/lab2/example')
 def example():
@@ -210,3 +52,31 @@ def lab2st():
     return render_template('studying.html')
 
 
+@app.route('/lab2/zac')
+def zac():
+    a,b,c = 3,4,5
+    if a<b<c:
+        a=a*2   
+        b=b*2
+        c=c*2 
+    else:
+        a=a
+        b=b
+        c=c
+    return f"a={a}, b={b}, c={c}"
+
+@app.route('/lab2/zac2')
+def zac1():
+    n=2
+    k=4
+    return str(n)*k
+
+
+@app.route('/lab2/zac3')
+def zac2():
+    n=5
+    k=1
+    sum=0
+    for i in range(1,n+1):
+        sum=sum+i**k
+    return f"sum={sum}"

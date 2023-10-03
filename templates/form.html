@@ -9,7 +9,7 @@
     <h1>Hi, {{user}}</h1>
     <h2>We are happy to see you here</h2>
     <div>Your age: {{age}}</div>
-    <div>Your sex: {{sex}}</div>
+    <div>Your sex: {{'male' if sex=='male' else 'female'}}</div>
     <div>
         <a href="/lab3/forms">Again</a>
     </div>
@@ -22,19 +22,22 @@
 
         <label>Your name:</label>
         <div>
-            <input type="text" placeholder="what is your name?" name="user">
+            <input type="text" placeholder="what is your name?" 
+                name="user" value="{{user or ''}}">
+            <span class="error">{{errors.user}}</span>
         </div>
 
         <label>Your age</label>
         <div>
-            <input type="number" name="age">
+            <input type="number" name="age" value="{{age or ''}}">
+            <span class="error">{{errors.age}}</span>
         </div>
 
         <label>Your sex</label>
         <div>
             <select name="sex">
-                <option value="male">male</option>
-                <option value="female">female</option>
+                <option value="male" {{sex=='male' and 'selected'}}>male</option>
+                <option value="female" {{sex=='female' and 'selected'}}>female</option>
             </select>
         </div>
 

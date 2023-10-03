@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block lab %}Laboratory work 3{% endblock %}
+
+{% block main %}
+    {%if card%}
+
+    <h2>Thanks for your order. Wait for delivery</h2>
+    <div>
+        <a href="/lab3/order">order again</a>
+    </div>
+
+    {%else%}
+
+    <h1>Payment</h1>
+
+    <div>Summ to pay: {{price}}</div>
+
+    <form action="/lab3/success">
+        <div>card number: </div>
+        <label>
+            <input type="text" name="card" pattern="\d{16}">
+        </label>
+        
+        <div>Card holder name:</div>
+        <label>
+            <input type="text" name="name">
+        </label>
+
+        <div>CVV:</div>
+        <label>
+            <input type="text" name="cvv" size="3" pattern="\d{3}">
+        </label>
+
+        <div>
+            <button type="submit">pay</button>
+            <a href="/lab3/order">refuse</a>
+        </div>
+    </form>
+    {%endif%}
+{%endblock%}
+

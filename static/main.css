@@ -30,3 +30,16 @@ footer{
     height:250px;
     margin-top: 10px;
 }
+
+.error{
+    color:red;
+}
+
+.order{
+    color:chocolate;
+    font-family: montserrat;
+}
+
+.order2{
+    color:rgb(120, 58, 0);
+}

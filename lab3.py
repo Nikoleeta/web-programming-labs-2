@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request
+import math
 lab3=Blueprint('lab3', __name__)
 
 @lab3.route('/lab3/')
@@ -96,3 +97,42 @@ def tick():
 @lab3.route('/lab3/buy')
 def ticket():
     return render_template('ticketbuy.html')
+
+
+@lab3.route('/lab3/zac')
+def zac():
+    x = float (request.args.get('x'))
+    n = int (request.args.get('n'))
+ 
+    def fac (n):
+        res=1
+        for i in range (1, n+1):
+            res*=i
+        return res
+    
+    result=1
+    sign=-1
+    for i in range (1, n+1):    
+       y=(sign*x**(2*i+1))/(fac(2*n+1))
+       result += y
+       sign*=-1
+           
+    return f"result={result}, n={n}, x={x}" 
+
+
+@lab3.route('/lab3/zac2')
+def zac2():
+    res=0
+    a,b,c,d = [request.args.get('a'), request.args.get('b'),
+           request.args.get('c'), request.args.get('d')]   
+    if a==b==c:
+        res=4,
+    elif  b==c==d:
+        res=1,
+    elif a==c==d:
+        res=2
+    else:
+        res=3
+
+    return f"res={res}"
+

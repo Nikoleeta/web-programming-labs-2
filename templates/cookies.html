@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block lab %}Laboratory work 3{% endblock %}
+
+{% block main %}
+    <h1>Cookies</h1>
+    <form method="post">
+        <div>
+            <label for="color">choose text color:</label>
+            <input type="color" id="color" name="color">
+        </div>
+        <p></p>
+        <div>
+            <label for="bgcolor">choose bg color:</label>
+            <input type="color" id="bgcolor" name="bgcolor">
+        </div>
+        <p></p>
+        <div>
+            <label for="size">choose font size:</label>
+            <input type="number" id="size" name="size"
+            min="5" max="30">
+        </div>
+        <p></p>
+        <div>
+            <button type="submit">OK</button>
+        </div>
+    </form>
+
+{%endblock%}

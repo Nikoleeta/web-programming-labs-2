@@ -90,14 +90,21 @@ def seed():
 
 @lab4.route('/lab4/cookies', methods=['GET', 'POST'])
 def cookies():
+    mes=''
     resp = make_response(render_template('cookies.html'))
     color = request.form.get('color')
     b_color = request.form.get('background-color')
     f_size = request.form.get('font-size')
+
     if color and b_color and f_size:
+        if color == b_color:
+            mes='поменяйте цвета'
+            return make_response(render_template('cookies.html', mes=mes))
+
         resp.set_cookie('color', color)
         resp.set_cookie('background-color', b_color)
         resp.set_cookie('font-size', f"{f_size}px")
-        return resp
+    return resp
+    
     return 'waiting for parameters'
     

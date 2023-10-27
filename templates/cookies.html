@@ -9,18 +9,20 @@
         <div>
             <label class ="label" for="color">Выберите цвет текста:</label>
             <input type="color" id="color" name="color" value="#333333">
+            <span>{{mes}}</span>
         </div>
         <div>
             <label class ="label" for="background-color">Выберите цвет фона:</label>
             <input type="color" id="background-color" name="background-color" value="#FFFFFF">
+            <span>{{mes}}</span>
         </div>
         <div>
             <label class ="label" for="font-size">Выберите размер шрифта:</label>
-            <input type="number" id="font-size" name="font-size" value="16">
+            <input type="number" id="font-size" name="font-size" value="16" min="5" max="30">
         </div>
         <div>
             <button type="submit">Применить</button><br>
-            <span></span>
+    
         </div>
     </form>
 {%endblock%}

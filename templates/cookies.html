@@ -1,29 +1,26 @@
 {% extends "base.html" %}
 
-{% block lab %}Laboratory work 3{% endblock %}
+{% block lab %}Лабораторная работа 4{% endblock %}
 
 {% block main %}
+
     <h1>Cookies</h1>
     <form method="post">
         <div>
-            <label for="color">choose text color:</label>
-            <input type="color" id="color" name="color">
+            <label class ="label" for="color">Выберите цвет текста:</label>
+            <input type="color" id="color" name="color" value="#333333">
         </div>
-        <p></p>
         <div>
-            <label for="bgcolor">choose bg color:</label>
-            <input type="color" id="bgcolor" name="bgcolor">
+            <label class ="label" for="background-color">Выберите цвет фона:</label>
+            <input type="color" id="background-color" name="background-color" value="#FFFFFF">
         </div>
-        <p></p>
         <div>
-            <label for="size">choose font size:</label>
-            <input type="number" id="size" name="size"
-            min="5" max="30">
+            <label class ="label" for="font-size">Выберите размер шрифта:</label>
+            <input type="number" id="font-size" name="font-size" value="16">
         </div>
-        <p></p>
         <div>
-            <button type="submit">OK</button>
+            <button type="submit">Применить</button><br>
+            <span></span>
         </div>
     </form>
-
 {%endblock%}

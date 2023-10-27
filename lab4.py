@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, make_response
 lab4=Blueprint('lab4', __name__)
 
 @lab4.route('/lab4/')
@@ -88,18 +88,16 @@ def seed():
 
 
 
-@lab4.route('/lab4/cookies',  methods=['GET', 'POST'])
+@lab4.route('/lab4/cookies', methods=['GET', 'POST'])
 def cookies():
-    if request.method=='GET':
-        return render_template('cookies.html')
+    resp = make_response(render_template('cookies.html'))
+    color = request.form.get('color')
+    b_color = request.form.get('background-color')
+    f_size = request.form.get('font-size')
+    if color and b_color and f_size:
+        resp.set_cookie('color', color)
+        resp.set_cookie('background-color', b_color)
+        resp.set_cookie('font-size', f"{f_size}px")
+        return resp
+    return 'waiting for parameters'
     
-    color=request.form.get('color')
-    bgcolor=request.form.get('bgcolor')
-    #size=request.form.get('size')
-
-    headers={
-        'Set-Cookie':'color='+ color+';bgcolor='+bgcolor+';path=/',
-        'Location': '/lab4/cookies',
-    } 
-
-    return '', 303, headers

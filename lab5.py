@@ -84,7 +84,7 @@ def registerPage():
 
         return render_template('register.html', errors=errors)
     
-    cur.execute(f"INSERT INTO users (username, password) VALUES ('{username}','{hashPassword}');")
+    cur.execute(f"INSERT INTO users (username, password) VALUES(%s, %s);",(username,hashPassword))
     
     conn.commit()
     conn.close()
@@ -157,7 +157,8 @@ def createArticle():
             conn = dbConnect()
             cur = conn.cursor()
 
-            cur.execute(f"INSERT INTO articles(user_id,title, article_text) VALUES ({userID}, '{title}', '{text_article}') RETURNING id")
+            cur.execute(f"INSERT INTO articles(user_id,title, article_text) VALUES (%s, %s, %s) RETURNING id",
+                        (userID, title, text_article))
             
             new_article_id = cur.fetchone()[0]
             conn.commit()
@@ -166,3 +167,48 @@ def createArticle():
             return redirect(f"/lab5/articles/{new_article_id}")
 
         return redirect ("/lab5/login")
+    
+
+@lab5.route("/lab5/articles/<string:article_id>")
+def getArticle(article_id):
+
+    userID = session.get("id")
+    if userID is not None:
+        conn = dbConnect()
+        cur = conn.cursor()
+
+        cur.execute(f"SELECT title, article_text FROM articles WHERE id =%s and user_id=%s", (article_id, userID))
+
+        articleBody = cur.fetchone()
+        dbClose(cur, conn)
+       
+        if articleBody is None:
+            return "Not found!"
+        text = articleBody[1].splitlines()
+        return render_template("note2.html", article_text=text,
+
+        article_title =articleBody[0], username=session.get("username"))
+
+
+
+@lab5.route("/lab5/myarticle")
+def getArticleList():
+    userID = session.get("id")
+    username = session.get("username")
+    articles_list = "Нет статей"
+   
+    if userID is not None:
+        conn = dbConnect()
+        cur = conn.cursor()
+       
+        cur.execute(f"SELECT id, title FROM articles WHERE user_id = {userID}")
+        articles_list = cur.fetchall()
+
+    return render_template("myarticle.html", articles_list=articles_list, username=username)
+
+
+@lab5.route("/lab5/logout", methods=['GET'])
+def logout():
+    session.clear()
+    return redirect('/lab5/login')
+

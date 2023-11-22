@@ -9,8 +9,7 @@ def main():
     conn=psycopg2.connect(host="127.0.0.1", 
                           user="nikoleta_knowledge_base",
                           database="knowledge_base_for_nikoleta", 
-                          password="111",
-                          port="5433")
+                          password="111")
     
     cur=conn.cursor()
     cur.execute("SELECT * From users;")

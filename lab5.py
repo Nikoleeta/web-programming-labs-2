@@ -10,8 +10,7 @@ def dbConnect():
                           database="knowledge_base_for_nickoleta", 
                           password="111",
                           port=5432)
-    return conn;
-
+    return conn
 
 def dbClose(cursor,connection):
     cursor.close()

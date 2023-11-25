@@ -1,7 +1,7 @@
 function getPrice(){
-    const milk=document.querySelector('[name=milk').Checked;
-    const sugar=document.querySelector('[name=sugar').Checked;
-    const drink=document.querySelector('[name=drink:checked').value;
+    const milk=document.querySelector('[name=milk]').Checked;
+    const sugar=document.querySelector('[name=sugar]').Checked;
+    const drink=document.querySelector('[name=drink]:checked').value;
 
     const obj={
         'method':'get-price',

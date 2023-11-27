@@ -6,13 +6,13 @@
     <title>Kosareva Nikoleta.{% block lab %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     {%if request.cookies.get('color')%}
-    <style>
-        body{
-            color:{{request.cookies.get('color')}};
-            background-color:{{request.cookies.get('background-color')}};
-            font-size:{{request.cookies.get('font-size')}};
-        }
-    </style>
+        <style>
+            body{
+                color:{{request.cookies.get('color')}};
+                background-color:{{request.cookies.get('background-color')}};
+                font-size:{{request.cookies.get('font-size')}};
+            }
+        </style>
     {%endif%}
     {%block script%}{%endblock%}
 </head>

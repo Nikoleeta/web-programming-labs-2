@@ -10,7 +10,7 @@ function getPrice(){
             milk:milk,
             sugar:sugar
         }
-    }
+    };
 
     fetch('/lab7/api',{
         method:'POST', 
@@ -21,7 +21,7 @@ function getPrice(){
         return resp.json();
     })
     .then (function(data){
-        document.querySelector('#price').innerHTML = 'Цена напитка:${data.result} rub'
+        document.querySelector('#price').innerHTML = 'Цена напитка:${data.result} rub';
     })
 
 }

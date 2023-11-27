@@ -20,7 +20,7 @@ def api():
     if data['method'] == 'pay':
         return pay(data['params'])
     
-    abort(400)
+        abort(400)
 
     def get_price(params):
         return{'result': calculate_price(params), 'error':None}

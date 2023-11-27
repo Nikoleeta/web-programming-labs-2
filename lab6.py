@@ -93,15 +93,12 @@ def view_article(article_id):
     article = articles.query.get(article_id)
     return render_template('article_list.html', article=article)
 
-<<<<<<< HEAD
-=======
 # @lab6.route('/lab6/logout')
 # @login_required
 # def logout():
 #     logout_user()
 #     return redirect('/lab6')
 
->>>>>>> bcc07c1d0f3102127e3676f9060e8f6343b542b3
 
 @lab6.route('/lab6/articles/add', methods=['GET', 'POST'])
 @login_required

@@ -11,10 +11,6 @@ def dbConnect():
                           password="111",
                           port=5432)
     return conn
-<<<<<<< HEAD
-
-=======
->>>>>>> bcc07c1d0f3102127e3676f9060e8f6343b542b3
 
 def dbClose(cursor,connection):
     cursor.close()

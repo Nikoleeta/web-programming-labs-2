@@ -3,7 +3,7 @@
 {% block lab %}Laboratory work 3{% endblock %}
 
 {%block script%}
-<script src="{{url_for('static', filename='lab7/drink.js')}}"></script>
+    <script src="{{url_for('static', filename='lab7/drink.js')}}"></script>
 {%endblock%}
 
 {% block main %}
@@ -32,6 +32,6 @@
             <button onclick='getPrice()'>Рассчитать цену</button>
         </div>
 
-        <div id='price'>{price}</div>
+        <div id='price'>{{price}}</div>
 
 {%endblock%}

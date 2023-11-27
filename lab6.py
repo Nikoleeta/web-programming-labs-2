@@ -31,19 +31,19 @@ def register():
     username_form=request.form.get('username')
     password_form=request.form.get('password')
 
-    if username_form == '':
+    isUserExists=users.query.filter_by(username=username_form).first()
+
+    if isUserExists == '':
         errors='Пустое имя'
         return render_template('register.html', errors=errors)
 
-    if len(password_form)<5:
-        errors='Пароль меньше 5'
-        return render_template('register.html', errors=errors)
+    # if len(password_form)<5:
+    #     errors='Пароль меньше 5'
+    #     return render_template('register.html', errors=errors)
 
-    isUserExists=users.query.filter_by(username=username_form).first()
-
-    if isUserExists is not None:
-        errors='уже существует'
-        return render_template('register.html', errors=errors)
+    # if isUserExists is not None:
+    #     errors='уже существует'
+    #     return render_template('register.html')
     
     hashedPswd=generate_password_hash(password_form, method='pbkdf2')
     newUser=users(username=username_form, password=hashedPswd)
@@ -63,13 +63,12 @@ def login():
     username_form=request.form.get('username')
     password_form=request.form.get('password')
 
-    if username_form=='' or password_form=='':
-        error='не заполнены поля'
-        return render_template('login.html', error=error)
-    
     my_user=users.query.filter_by(username=username_form).first()
     
-
+    # if my_user=='' or password_form=='':
+    #     error='не заполнены поля'
+    #     return render_template('login.html', error=error)
+    
     if my_user is not None:
         if check_password_hash(my_user.password, password_form):
             login_user(my_user, remember=False)
@@ -94,6 +93,15 @@ def view_article(article_id):
     article = articles.query.get(article_id)
     return render_template('article_list.html', article=article)
 
+<<<<<<< HEAD
+=======
+# @lab6.route('/lab6/logout')
+# @login_required
+# def logout():
+#     logout_user()
+#     return redirect('/lab6')
+
+>>>>>>> bcc07c1d0f3102127e3676f9060e8f6343b542b3
 
 @lab6.route('/lab6/articles/add', methods=['GET', 'POST'])
 @login_required

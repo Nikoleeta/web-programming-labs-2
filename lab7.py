@@ -16,13 +16,13 @@ def api():
     data=request.json
 
     if data['method'] == 'get-price':
-        return get_price(data['params'])
+        return getprice(data['params'])
     if data['method'] == 'pay':
         return pay(data['params'])
     
         abort(400)
 
-    def get_price(params):
+    def getprice(params):
         return{'result': calculate_price(params), 'error':None}
     def calculate_price(params):
         drink=params['drink']

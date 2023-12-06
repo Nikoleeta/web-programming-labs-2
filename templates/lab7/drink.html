@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block lab %}Laboratory work 3{% endblock %}
+{% block lab %}Laboratory work 7{% endblock %}
 
 {%block script%}
     <script src="{{url_for('static', filename='lab7/drink.js')}}"></script>
@@ -29,7 +29,7 @@
         </label>
 
         <div>
-            <button onclick='getPrice()'>Рассчитать цену</button>
+            <button onclick="getPrice()">Рассчитать цену</button>
         </div>
 
         <div id='price'>{{price}}</div>

@@ -53,4 +53,4 @@ def pay(params):
         return {'result':None, "error": 'Invalid number cvv'}
         
     price=calculate_price(params)
-    return{'result': f'С карты {card_num} списано {price} руб', 'error': None}
+    return{"result": "success", "message": f"С карты {card_num} списано {price} руб", "error": None}

@@ -34,4 +34,25 @@
 
         <div id='price'>{{price}}</div>
 
+
+        <div id="pay" style="display:none;">
+            <div>Card number:</div>
+            <label>
+                <input type="text" name="card_num">
+            </label>
+
+            <div>Name:</div>
+            <label>
+                <input type="text" name="name">
+            </label>
+
+            <div>cvv:</div>
+            <label>
+                <input type="text" name="cvv" size="3">
+            </label>
+
+            <div>
+                <button onclick="pay()">pay</button>
+            </div>
+        </div>
 {%endblock%}

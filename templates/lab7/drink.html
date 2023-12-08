@@ -54,5 +54,31 @@
             <div>
                 <button onclick="pay()">pay</button>
             </div>
+           
+        </div>
+    
+        <div id="refund" style="display:none;">
+        <p></p>
+            <div>Если вам не понравился напиток, вы можете вернуть деньги. 
+                <p>Но мы вам не советуем!</p>
+            </div>
+        <div>Card number:</div>
+            <label>
+                <input type="text" name="card_num">
+            </label>
+
+            <div>Name:</div>
+            <label>
+                <input type="text" name="name">
+            </label>
+
+            <div>cvv:</div>
+            <label>
+                <input type="text" name="cvv" size="3">
+            </label>
+
+        <div>
+            <button onclick="refund()">refund</button>
+        </div>
         </div>
 {%endblock%}

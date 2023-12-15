@@ -28,14 +28,14 @@ def lab():
         веб-приложений, сознательно предоставляющих лишь 
         самые базовые возможности</p>
 
-        <a href="http://127.0.0.1:5000/menu">Меню</a>
+        <a href="/menu">Меню</a>
 
         <h2>Реализованные роуты</h2>
         <ul>
-            <li><a href="http://127.0.0.1:5000/lab1/oak">/lab1/oak - дуб</a></li>
-            <li><a href="http://127.0.0.1:5000/lab1/student">/lab1/student - студент</a></li>
-            <li><a href="http://127.0.0.1:5000/lab1/python">/lab1/python - python</a></li>
-            <li><a href="http://127.0.0.1:5000/lab1/bi">/lab1/bi - бизнес-информатика</a></li>
+            <li><a href="/lab1/oak">/lab1/oak - дуб</a></li>
+            <li><a href="/lab1/student">/lab1/student - студент</a></li>
+            <li><a href="/lab1/python">/lab1/python - python</a></li>
+            <li><a href="/lab1/bi">/lab1/bi - бизнес-информатика</a></li>
         </ul>
 
         <footer>

@@ -35,11 +35,13 @@ function fillCourselist(){
             tdActions.append(editButton);
             tdActions.append(delButton);
 
+            let tdDate=document.createElement('td');
 
             tr.append(tdName);
             tr.append(tdVideos);
             tr.append(tdPrice);
             tr.append(tdActions);
+            tr.append(tdDate);
 
             tbody.append(tr);
         }
@@ -99,6 +101,4 @@ function fillCourselist(){
         document.getElementById('videos').value=course.videos;
         document.getElementById('price').value=course.price;
         showModal();
-
-
     }

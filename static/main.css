@@ -43,3 +43,34 @@ footer{
 .order2{
     color:rgb(120, 58, 0);
 }
+
+.input{
+    border-radius: 15px;
+    width:200px;
+    height: 30px;
+    border-color: rgb(195, 0, 0);
+    margin: 5px;
+}
+.button{
+    border-radius: 15px;
+    width:200px;
+    height: 30px;
+    border-color: rgb(195, 0, 0);
+    margin: 5px;
+    background-color:rgb(135, 29, 0);
+    color: white;
+}
+.card{
+    border-radius: 15px;
+    width:400px;
+    height: 200px;
+    border-color: rgb(195, 0, 0);
+    margin: 5px;
+    background-color:rgb(135, 29, 0);
+    color: white;
+    font-size:20px;
+    padding: 15px;
+    text-align: center  ;
+    margin-left: auto;
+    margin-right: auto;;
+}

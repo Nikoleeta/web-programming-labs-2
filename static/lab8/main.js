@@ -24,18 +24,18 @@ function fillCourselist(){
                 editCourse(i,courses[i]);
             };
             
-
             let delButton=document.createElement('button');
             delButton.innerText='удалить';
             delButton.onclick=function(){
                 deleteCourse(i);
             }
 
+            let tdDate = document.createElement('td');
+            tdDate.innerText = courses[i].date_;
+
             let tdActions=document.createElement('td');
             tdActions.append(editButton);
             tdActions.append(delButton);
-
-            let tdDate=document.createElement('td');
 
             tr.append(tdName);
             tr.append(tdVideos);
